@@ -1,8 +1,13 @@
+import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_signin_button/button_list.dart';
+import 'package:flutter_signin_button/button_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gradient_widgets/gradient_widgets.dart';
 import 'package:junkjar/Colours.dart';
+import 'package:junkjar/GoogleButton.dart';
 import 'package:junkjar/TestPage.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -25,35 +30,37 @@ class _MyHomePageState extends State<MyHomePage> {
               SizedBox(
                 height: 75.0,
               ),
-              Container(height: 100.0, width: 100.0,
-                child: Image.asset('assets/plastic.png'),
+              Container(height: 175.0, width: 175.0,
+//                child: Image.asset('assets/plastic.png'),
+                  child: FlareActor("assets/recycle.flr", alignment:Alignment.center, fit:BoxFit.contain, animation:"enter"),
               ),
               SizedBox(
-                height: 20.0,
+                height: 30.0,
               ),
               Text(
                 'Join JunkJar',
                 style: GoogleFonts.sriracha(textStyle: TextStyle(color: MyColors.white, fontSize: 50.0,)),
               ),
-              SizedBox(
-                height: 10.0,
-              ),
               Text(
-                'Test Text 2',
-                style: TextStyle(color: MyColors.white),
-              )
+                'Join JunkJar to convert your plastic bottles into \n points to claim exciting gift cards and vouchers!',
+                style: GoogleFonts.sriracha(textStyle: TextStyle(color: MyColors.white, fontSize: 15.0,)),
+              ),
+              SizedBox(
+                height: 100.0,
+              ),
+              GoogleButton(),
             ],
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.remove),
-        onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return TestPage();
-          }));
-        },
-      ),
+//      floatingActionButton: FloatingActionButton(
+//        child: Icon(Icons.remove),
+//        onPressed: () {
+//          Navigator.push(context, MaterialPageRoute(builder: (context) {
+//            return TestPage();
+//          }));
+//        },
+//      ),
     );
   }
 }

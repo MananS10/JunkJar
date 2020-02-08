@@ -23,6 +23,10 @@ dependencies:
   cupertino_icons: ^0.1.2
   gradient_widgets: ^0.5.2
   google_fonts: ^0.3.7
+  flare_flutter: ^2.0.1
+  firebase_auth: ^0.15.4
+  google_sign_in: ^4.1.1
+  flutter_signin_button: ^1.0.0
 
 dev_dependencies:
   flutter_test:
