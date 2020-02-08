@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:gradient_widgets/gradient_widgets.dart';
 import 'package:junkjar/Colours.dart';
 import 'package:junkjar/TestPage.dart';
@@ -22,15 +23,24 @@ class _MyHomePageState extends State<MyHomePage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               SizedBox(
-                height: 200.0,
+                height: 75.0,
+              ),
+              Container(height: 100.0, width: 100.0,
+                child: Image.asset('assets/plastic.png'),
+              ),
+              SizedBox(
+                height: 20.0,
               ),
               Text(
-                'Test Text',
-                style: TextStyle(color: MaterialColors.yellow, fontSize: 50.0),
+                'Join JunkJar',
+                style: GoogleFonts.sriracha(textStyle: TextStyle(color: MyColors.white, fontSize: 50.0,)),
+              ),
+              SizedBox(
+                height: 10.0,
               ),
               Text(
                 'Test Text 2',
-                style: TextStyle(color: MaterialColors.yellow),
+                style: TextStyle(color: MyColors.white),
               )
             ],
           ),
