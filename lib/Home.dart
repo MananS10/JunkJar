@@ -35,7 +35,6 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               Container(
                 height: 175.0, width: 175.0,
-//                child: Image.asset('assets/plastic.png'),
                 child: FlareActor("assets/recycle.flr",
                     alignment: Alignment.center,
                     fit: BoxFit.contain,
@@ -63,44 +62,43 @@ class _MyHomePageState extends State<MyHomePage> {
               SizedBox(
                 height: 80.0,
               ),
-              SignInButton(Buttons.Google, onPressed: (){
-                signInWithGoogle().whenComplete(() {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return FirstScreen();
-                      },
-                    ),
-                  );
-                });
-              },),
-//              GestureDetector(
-//                child: GoogleButton(),
-//                onTap: () {
-//                  print('CLICKeD');
-//                  signInWithGoogle().whenComplete(() {
-//                    Navigator.of(context).push(
-//                      MaterialPageRoute(
-//                        builder: (context) {
-//                          return FirstScreen();
-//                        },
-//                      ),
-//                    );
-//                  });
-//                },
-//              ),
+//              SignInButton(Buttons.Google, onPressed: (){
+//                signInWithGoogle().whenComplete(() {
+//                  Navigator.of(context).push(
+//                    MaterialPageRoute(
+//                      builder: (context) {
+//                        return FirstScreen();
+//                      },
+//                    ),
+//                  );
+//                });
+//              },),
+              GestureDetector(
+                child: GoogleButton(),
+                onLongPress: () {
+                  signInWithGoogle().whenComplete(() {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return FirstScreen();
+                        },
+                      ),
+                    );
+                  });
+                },
+              ),
             ],
           ),
         ],
       ),
-//      floatingActionButton: FloatingActionButton(
-//        child: Icon(Icons.remove),
-//        onPressed: () {
-//          Navigator.push(context, MaterialPageRoute(builder: (context) {
-//            return TestPage();
-//          }));
-//        },
-//      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.remove),
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return FirstScreen();
+          }));
+        },
+      ),
     );
   }
 }
