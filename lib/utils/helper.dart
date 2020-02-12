@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:junkjar/pages/FirstScreen.dart';
+import 'package:junkjar/pages/Home.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'Colours.dart';
@@ -16,13 +18,13 @@ class _HelperState extends State<Helper> {
       if (isFirstLaunch) {
         Navigator.pushAndRemoveUntil(
             context,
-            MaterialPageRoute(builder: (context) => MyLoginPage(prefs: prefs)),
+            MaterialPageRoute(builder: (context) => MyHomePage(prefs: prefs)),
             (Route<dynamic> route) => false);
         // very first launch since install
       } else {
         Navigator.pushAndRemoveUntil(
             context,
-            MaterialPageRoute(builder: (context) => MyHomePage(prefs: prefs)),
+            MaterialPageRoute(builder: (context) => FirstScreen(prefs: prefs)),
             (Route<dynamic> route) => false);
       }
   }

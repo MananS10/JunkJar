@@ -13,23 +13,21 @@ class FirebaseDatabase {
   //Constructor for getting the UUID.
   FirebaseDatabase({this.uuid, this.emailId});
 
-  // Method for adding seniors to seniors collection.
   Future<void> initialSaveUserToCollection() async {
     // Handling Exceptions if any.
     try {
       // Getting the document from Firestore.
-      final CollectionReference seniorCollectionReference =
-          _firestore.collection('seniors');
-      DocumentSnapshot seniorDocument =
-          await seniorCollectionReference.document(this.uuid).get();
-      Map<String, dynamic> seniorMap = seniorDocument.data;
+      final CollectionReference collectionReference =
+          _firestore.collection('users');
+      DocumentSnapshot document =
+          await collectionReference.document(this.uuid).get();
+      Map<String, dynamic> map = document.data;
 
       // Checking if data is already present. If not, create a document.
-      if (seniorMap == null) {
-        await seniorCollectionReference.document(this.uuid).setData({
+      if (map == null) {
+        await collectionReference.document(this.uuid).setData({
           'uuid': this.uuid,
           'emailId': this.emailId,
-          'connectedTo': 'null' // TODO: implement this
         });
       }
     } catch (error) {
