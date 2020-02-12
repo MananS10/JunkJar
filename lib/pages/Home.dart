@@ -1,16 +1,11 @@
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_signin_button/button_list.dart';
-import 'package:flutter_signin_button/button_view.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:gradient_widgets/gradient_widgets.dart';
-import 'package:junkjar/Colours.dart';
-import 'package:junkjar/GoogleButton.dart';
-import 'package:junkjar/TestPage.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:junkjar/sign_in.dart';
+import 'package:junkjar/utils/Colours.dart';
+import 'package:junkjar/utils/sign_in.dart';
 
 import 'FirstScreen.dart';
+import 'GoogleButton.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -34,7 +29,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: 75.0,
               ),
               Container(
-                height: 175.0, width: 175.0,
+                height: 175.0,
+                width: 175.0,
                 child: FlareActor("assets/recycle.flr",
                     alignment: Alignment.center,
                     fit: BoxFit.contain,

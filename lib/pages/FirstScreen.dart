@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'Colours.dart';
+import 'package:junkjar/utils/Colours.dart';
 
 class FirstScreen extends StatefulWidget {
   @override

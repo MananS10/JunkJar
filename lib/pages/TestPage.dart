@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:junkjar/Colours.dart';
+import 'package:junkjar/utils/Colours.dart';
 
 class TestPage extends StatefulWidget {
   @override
