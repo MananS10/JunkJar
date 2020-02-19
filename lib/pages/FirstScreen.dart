@@ -28,12 +28,22 @@ class _FirstScreenState extends State<FirstScreen> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
+              SizedBox(
+                height: 50,
+              ),
+              CircleAvatar(
+                  radius: 55,
+                  backgroundImage: NetworkImage(_user.photoUrl)
+              ),
+              SizedBox(
+                height: 20,
+              ),
               Text(
-                'Welcome, ${_user.name}', // use the same format
-                style: TextStyle(fontSize: 22),
+                  'Welcome, ${_user.name}', // use the same format
+                  style: TextStyle(fontSize: 22, color: GradientColors.lightStart)
               ),
             ],
           ),
