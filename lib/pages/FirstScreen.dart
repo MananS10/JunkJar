@@ -1,7 +1,8 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:junkjar/models/user.dart';
+import 'package:junkjar/pages/MapsPage.dart';
 import 'package:junkjar/utils/Colours.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -35,16 +36,14 @@ class _FirstScreenState extends State<FirstScreen> {
                 height: 50,
               ),
               CircleAvatar(
-                  radius: 55,
-                  backgroundImage: NetworkImage(_user.photoUrl)
-              ),
+                  radius: 55, backgroundImage: NetworkImage(_user.photoUrl)),
               SizedBox(
                 height: 20,
               ),
-              Text(
-                  'Welcome, ${_user.name}', // use the same format
-                  style: TextStyle(fontSize: 22, color: GradientColors.lightStart)
-              ),
+              Text('Welcome, ${_user.name}', // use the same format
+                  style: GoogleFonts. sriracha(
+                  textStyle: TextStyle(
+                      fontSize: 22, color: MaterialColors.yellow))),
             ],
           ),
         ],
@@ -82,6 +81,14 @@ class _FirstScreenState extends State<FirstScreen> {
                 style: TextStyle(color: MyColors.darkBlue),
               )),
         ],
+      ),
+        floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.remove),
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return MapsPage();
+          }));
+        },
       ),
     );
   }
