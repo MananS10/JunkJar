@@ -5,6 +5,7 @@ import 'package:junkjar/models/user.dart';
 import 'package:junkjar/pages/MapsPage.dart';
 import 'package:junkjar/utils/Colours.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class FirstScreen extends StatefulWidget {
   final SharedPreferences prefs;
@@ -41,9 +42,12 @@ class _FirstScreenState extends State<FirstScreen> {
                 height: 20,
               ),
               Text('Welcome, ${_user.name}', // use the same format
-                  style: GoogleFonts. sriracha(
-                  textStyle: TextStyle(
-                      fontSize: 22, color: MaterialColors.yellow))),
+                  style: GoogleFonts.play(
+                      textStyle: TextStyle(
+                          fontSize: 22, color: MaterialColors.yellow))),
+              SizedBox(
+                height: 20,
+              )
             ],
           ),
         ],
@@ -82,7 +86,7 @@ class _FirstScreenState extends State<FirstScreen> {
               )),
         ],
       ),
-        floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton(
         child: Icon(Icons.remove),
         onPressed: () {
           Navigator.push(context, MaterialPageRoute(builder: (context) {

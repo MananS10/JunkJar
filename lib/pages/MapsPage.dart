@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:junkjar/utils/Colours.dart';
 
 class MapsPage extends StatefulWidget {
   @override
@@ -9,7 +10,7 @@ class MapsPage extends StatefulWidget {
 class _MapsPageState extends State<MapsPage> {
   GoogleMapController mapController;
 
-  final LatLng _center = const LatLng(45.521563, -122.677433);
+  final LatLng _center = const LatLng(19.107392, 72.837796);
 
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;
@@ -20,10 +21,11 @@ class _MapsPageState extends State<MapsPage> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Maps Sample App'),
-          backgroundColor: Colors.green[700],
+          title: Text('User and Dustbin location'),
+          backgroundColor: ShadowColors.dark,
         ),
         body: GoogleMap(
+          mapType: MapType.hybrid,
           onMapCreated: _onMapCreated,
           initialCameraPosition: CameraPosition(
             target: _center,
