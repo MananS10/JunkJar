@@ -67,7 +67,7 @@ class _FirstScreenState extends State<FirstScreen> {
           ),
           BottomNavigationBarItem(
             icon: new Icon(
-              Icons.mail,
+              Icons.map,
               color: MyColors.darkBlue,
             ),
             title: new Text(
@@ -87,7 +87,7 @@ class _FirstScreenState extends State<FirstScreen> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.remove),
+        child: Icon(Icons.map),
         onPressed: () {
           Navigator.push(context, MaterialPageRoute(builder: (context) {
             return MapsPage();
