@@ -5,6 +5,7 @@ import 'package:junkjar/models/user.dart';
 import 'package:junkjar/pages/MapsPage.dart';
 import 'package:junkjar/utils/Colours.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class FirstScreen extends StatefulWidget {
   final SharedPreferences prefs;
@@ -24,30 +25,50 @@ class _FirstScreenState extends State<FirstScreen> {
 
     return Scaffold(
       backgroundColor: MyColors.black,
-      body: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              SizedBox(
-                height: 50,
-              ),
-              CircleAvatar(
-                  radius: 55, backgroundImage: NetworkImage(_user.photoUrl)),
-              SizedBox(
-                height: 20,
-              ),
-              Text('Welcome, ${_user.name}', // use the same format
-                  style: GoogleFonts. sriracha(
-                  textStyle: TextStyle(
-                      fontSize: 22, color: MaterialColors.yellow))),
-            ],
-          ),
-        ],
-      ),
+//      body: Row(
+//        mainAxisAlignment: MainAxisAlignment.center,
+//        crossAxisAlignment: CrossAxisAlignment.center,
+//        children: <Widget>[
+//          Column(
+//            mainAxisAlignment: MainAxisAlignment.start,
+//            crossAxisAlignment: CrossAxisAlignment.center,
+//            children: <Widget>[
+//              SizedBox(
+//                height: 50,
+//              ),
+//              CircleAvatar(
+//                  radius: 55, backgroundImage: NetworkImage(_user.photoUrl)),
+//              SizedBox(
+//                height: 20,
+//              ),
+//              Text('Welcome, ${_user.name}', // use the same format
+//                  style: GoogleFonts.play(
+//                      textStyle: TextStyle(
+//                          fontSize: 22, color: MaterialColors.yellow))),
+//              SizedBox(
+//                height: 20,
+//              ),
+//
+//            ],
+//          ),
+//        ],
+//      ),
+    body: StaggeredGridView.countBuilder(
+      crossAxisCount: 4,
+      itemCount: 8,
+      itemBuilder: (BuildContext context, int index) => new Container(
+          color: Colors.green,
+          child: new Center(
+            child: new CircleAvatar(
+              backgroundColor: Colors.white,
+              child: new Text('$index'),
+            ),
+          )),
+      staggeredTileBuilder: (int index) =>
+      new StaggeredTile.count(2, index.isEven ? 2 : 1),
+      mainAxisSpacing: 4.0,
+      crossAxisSpacing: 4.0,
+    ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: 0,
         items: [
@@ -63,7 +84,7 @@ class _FirstScreenState extends State<FirstScreen> {
           ),
           BottomNavigationBarItem(
             icon: new Icon(
-              Icons.mail,
+              Icons.map,
               color: MyColors.darkBlue,
             ),
             title: new Text(
@@ -82,8 +103,8 @@ class _FirstScreenState extends State<FirstScreen> {
               )),
         ],
       ),
-        floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.remove),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.map),
         onPressed: () {
           Navigator.push(context, MaterialPageRoute(builder: (context) {
             return MapsPage();
