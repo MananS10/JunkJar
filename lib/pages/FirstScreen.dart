@@ -1,11 +1,11 @@
 import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:junkjar/models/user.dart';
 import 'package:junkjar/pages/MapsPage.dart';
 import 'package:junkjar/utils/Colours.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class FirstScreen extends StatefulWidget {
   final SharedPreferences prefs;
@@ -15,7 +15,9 @@ class FirstScreen extends StatefulWidget {
   @override
   _FirstScreenState createState() => _FirstScreenState();
 }
+
 int _selectedIndex = 0;
+
 class _FirstScreenState extends State<FirstScreen> {
   @override
   Widget build(BuildContext context) {
@@ -27,6 +29,7 @@ class _FirstScreenState extends State<FirstScreen> {
         _selectedIndex = index;
       });
     }
+
     return Scaffold(
       backgroundColor: MyColors.black,
       body: Row(
@@ -52,64 +55,115 @@ class _FirstScreenState extends State<FirstScreen> {
               SizedBox(
                 height: 20,
               ),
-              GestureDetector(
-                child: Card(
-                  semanticContainer: true,
-                  clipBehavior: Clip.antiAliasWithSaveLayer,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  GestureDetector(
+                    child: Card(
+                      semanticContainer: true,
+                      clipBehavior: Clip.antiAliasWithSaveLayer,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      elevation: 5.0,
+                      child: Container(
+                        height: 125.0,
+                        width: 125.0,
+                        child: Image.asset(
+                          'assets/icon-legacy.png',
+                          fit: BoxFit.fill,
+                        ),
+                      ),
+                    ),
+                    onTap: () {
+                      print('Tile clicked');
+                    },
                   ),
-                  elevation: 5.0,
-                  child: Container(
-                    height: 125.0,
-                    width: 125.0,
-//                    child: Image.asset(
-//                      'assets/graphics/heart.png',
-//                      fit: BoxFit.fill,
-//                    ),
+                  SizedBox(
+                    width: 20.0,
                   ),
-                ),
-                //onTap: () => doNothing(),
+                  GestureDetector(
+                    child: Card(
+                      semanticContainer: true,
+                      clipBehavior: Clip.antiAliasWithSaveLayer,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      elevation: 5.0,
+                      child: Container(
+                        height: 125.0,
+                        width: 125.0,
+                        child: Image.asset(
+                          'assets/icon-legacy.png',
+                          fit: BoxFit.fill,
+                        ),
+                      ),
+                    ),
+                    onTap: () {
+                      print('Tile clicked');
+                    },
+                  ),
+                ],
               ),
-              GestureDetector(
-                child: Card(
-                  semanticContainer: true,
-                  clipBehavior: Clip.antiAliasWithSaveLayer,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
+              SizedBox(
+                height: 20.0,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  GestureDetector(
+                    child: Card(
+                      semanticContainer: true,
+                      clipBehavior: Clip.antiAliasWithSaveLayer,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      elevation: 5.0,
+                      child: Container(
+                        height: 125.0,
+                        width: 125.0,
+                        child: Image.asset(
+                          'assets/icon-legacy.png',
+                          fit: BoxFit.fill,
+                        ),
+                      ),
+                    ),
+                    onTap: () {
+                      print('Tile clicked');
+                    },
                   ),
-                  elevation: 5.0,
-                  child: Container(
-                    height: 125.0,
-                    width: 125.0,
-//                    child: Image.asset(
-//                      'assets/graphics/heart.png',
-//                      fit: BoxFit.fill,
-//                    ),
+                  SizedBox(
+                    width: 20.0,
                   ),
-                ),
-                //onTap: () => doNothing(),
+                  GestureDetector(
+                    child: Card(
+                      semanticContainer: true,
+                      clipBehavior: Clip.antiAliasWithSaveLayer,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      elevation: 5.0,
+                      child: Container(
+                        height: 125.0,
+                        width: 125.0,
+                        child: Image.asset(
+                          'assets/icon-legacy.png',
+                          fit: BoxFit.fill,
+                        ),
+                      ),
+                    ),
+                    onTap: () {
+                      print('Tile clicked');
+                    },
+                  ),
+                ],
               ),
             ],
           ),
         ],
       ),
-//    body: StaggeredGridView.countBuilder(
-//      crossAxisCount: 4,
-//      itemCount: 8,
-//      itemBuilder: (BuildContext context, int index) => new Container(
-//          color: MyColors.dark,
-//          child: new Center(
-//            child: new CircleAvatar(
-//              backgroundColor: Colors.white,
-//              child: new Text('$index'),
-//            ),
-//          )),
-//      staggeredTileBuilder: (int index) =>
-//      new StaggeredTile.count(2, index.isEven ? 2 : 1),
-//      mainAxisSpacing: 4.0,
-//      crossAxisSpacing: 4.0,
-//    ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
