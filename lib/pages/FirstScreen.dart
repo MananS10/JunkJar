@@ -57,7 +57,7 @@ class _FirstScreenState extends State<FirstScreen> {
       crossAxisCount: 4,
       itemCount: 8,
       itemBuilder: (BuildContext context, int index) => new Container(
-          color: Colors.green,
+          color: MyColors.dark,
           child: new Center(
             child: new CircleAvatar(
               backgroundColor: Colors.white,
@@ -88,7 +88,7 @@ class _FirstScreenState extends State<FirstScreen> {
               color: MyColors.darkBlue,
             ),
             title: new Text(
-              'Messages',
+              'Map',
               style: TextStyle(color: MyColors.darkBlue),
             ),
           ),
