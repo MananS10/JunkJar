@@ -52,7 +52,44 @@ class _FirstScreenState extends State<FirstScreen> {
               SizedBox(
                 height: 20,
               ),
-
+              GestureDetector(
+                child: Card(
+                  semanticContainer: true,
+                  clipBehavior: Clip.antiAliasWithSaveLayer,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  elevation: 5.0,
+                  child: Container(
+                    height: 125.0,
+                    width: 125.0,
+//                    child: Image.asset(
+//                      'assets/graphics/heart.png',
+//                      fit: BoxFit.fill,
+//                    ),
+                  ),
+                ),
+                //onTap: () => doNothing(),
+              ),
+              GestureDetector(
+                child: Card(
+                  semanticContainer: true,
+                  clipBehavior: Clip.antiAliasWithSaveLayer,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  elevation: 5.0,
+                  child: Container(
+                    height: 125.0,
+                    width: 125.0,
+//                    child: Image.asset(
+//                      'assets/graphics/heart.png',
+//                      fit: BoxFit.fill,
+//                    ),
+                  ),
+                ),
+                //onTap: () => doNothing(),
+              ),
             ],
           ),
         ],
@@ -84,8 +121,8 @@ class _FirstScreenState extends State<FirstScreen> {
             title: Text('Scanner'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.map),
-            title: Text('Map'),
+            icon: Icon(Icons.store),
+            title: Text('Store'),
           ),
         ],
         currentIndex: _selectedIndex,
