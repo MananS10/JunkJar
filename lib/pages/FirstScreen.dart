@@ -15,14 +15,18 @@ class FirstScreen extends StatefulWidget {
   @override
   _FirstScreenState createState() => _FirstScreenState();
 }
-
+int _selectedIndex = 0;
 class _FirstScreenState extends State<FirstScreen> {
   @override
   Widget build(BuildContext context) {
     final User _user =
         User.fromJson(json.decode(widget.prefs.getString('user')));
     // gets logged in user back into our custom class object
-
+    void _onItemTapped(int index) {
+      setState(() {
+        _selectedIndex = index;
+      });
+    }
     return Scaffold(
       backgroundColor: MyColors.black,
 //      body: Row(
@@ -70,38 +74,23 @@ class _FirstScreenState extends State<FirstScreen> {
       crossAxisSpacing: 4.0,
     ),
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 0,
-        items: [
+        items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: new Icon(
-              Icons.home,
-              color: MyColors.darkBlue,
-            ),
-            title: new Text(
-              'Home',
-              style: TextStyle(color: MyColors.darkBlue),
-            ),
+            icon: Icon(Icons.person),
+            title: Text('Dashboard'),
           ),
           BottomNavigationBarItem(
-            icon: new Icon(
-              Icons.map,
-              color: MyColors.darkBlue,
-            ),
-            title: new Text(
-              'Map',
-              style: TextStyle(color: MyColors.darkBlue),
-            ),
+            icon: Icon(Icons.camera),
+            title: Text('Scanner'),
           ),
           BottomNavigationBarItem(
-              icon: Icon(
-                Icons.person,
-                color: MyColors.darkBlue,
-              ),
-              title: Text(
-                'Profile',
-                style: TextStyle(color: MyColors.darkBlue),
-              )),
+            icon: Icon(Icons.map),
+            title: Text('Map'),
+          ),
         ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: MyColors.darkBlue,
+        onTap: _onItemTapped,
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.map),
