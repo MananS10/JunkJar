@@ -68,8 +68,8 @@ class _FirstScreenState extends State<FirstScreen> {
                       ),
                       elevation: 5.0,
                       child: Container(
-                        height: 125.0,
-                        width: 125.0,
+                        height: 140.0,
+                        width: 140.0,
                         child: Image.asset(
                           'assets/icon-legacy.png',
                           fit: BoxFit.fill,
@@ -92,8 +92,8 @@ class _FirstScreenState extends State<FirstScreen> {
                       ),
                       elevation: 5.0,
                       child: Container(
-                        height: 125.0,
-                        width: 125.0,
+                        height: 140.0,
+                        width: 140.0,
                         child: Image.asset(
                           'assets/icon-legacy.png',
                           fit: BoxFit.fill,
@@ -122,8 +122,8 @@ class _FirstScreenState extends State<FirstScreen> {
                       ),
                       elevation: 5.0,
                       child: Container(
-                        height: 125.0,
-                        width: 125.0,
+                        height: 140.0,
+                        width: 140.0,
                         child: Image.asset(
                           'assets/icon-legacy.png',
                           fit: BoxFit.fill,
@@ -146,8 +146,8 @@ class _FirstScreenState extends State<FirstScreen> {
                       ),
                       elevation: 5.0,
                       child: Container(
-                        height: 125.0,
-                        width: 125.0,
+                        height: 140.0,
+                        width: 140.0,
                         child: Image.asset(
                           'assets/icon-legacy.png',
                           fit: BoxFit.fill,
