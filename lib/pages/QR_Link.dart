@@ -1,6 +1,8 @@
 import 'package:barcode_scan/barcode_scan.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:junkjar/models/user.dart';
+import 'package:junkjar/models/user_repository.dart';
 import 'package:junkjar/pages/FirstScreen.dart';
 import 'package:junkjar/utils/Colours.dart';
 import 'package:shared_preferences/shared_preferences.dart';
