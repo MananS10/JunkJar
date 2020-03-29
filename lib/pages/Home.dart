@@ -87,7 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   FirebaseUser _firebaseUser =
                       await widget.authService.signInWithGoogle();
 
-                  final String uuid = Uuid().v4(); // generates random ID
+                  final String uid = _firebaseUser.uid; // generates random ID
                   final String name = _firebaseUser.displayName;
                   final String email = _firebaseUser.email;
                   final String photoUrl = _firebaseUser.photoUrl;
@@ -96,7 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     print('Login success! $name, $email');
 
                     User user = User(
-                      uuid: uuid,
+                      uid: uid,
                       name: name,
                       email: email,
                       photoUrl: photoUrl,

@@ -1,8 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-import 'firebase_database.dart';
-
 class AuthService {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
   final GoogleSignIn _googleSignIn = GoogleSignIn();
@@ -32,15 +30,10 @@ class AuthService {
           await _firebaseAuth.signInWithCredential(authCredential);
       final FirebaseUser firebaseUser = authResult.user;
 
-      // Creating document of the user in the seniors collection
-      await FirebaseDatabase(
-              uuid: firebaseUser.uid, emailId: firebaseUser.email)
-          .initialSaveUserToCollection();
-
-      // Return the corresponding Firebase user.
       return firebaseUser;
     } catch (error) {
       print('Error: $error');
+      return null;
     }
   }
 
@@ -50,6 +43,16 @@ class AuthService {
       return await _firebaseAuth.signOut();
     } catch (error) {
       print('Error: $error');
+    }
+  }
+
+  // returns the currently signed in user
+  Future<FirebaseUser> getUser() async {
+    try {
+      return await _firebaseAuth.currentUser();
+    } catch (error) {
+      print('Error: $error');
+      return null;
     }
   }
 }

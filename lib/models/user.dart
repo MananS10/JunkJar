@@ -1,25 +1,25 @@
 class User {
-  final String uuid;
+  final String uid;
   final String name;
   final String email;
   final String photoUrl;
 
   User({
-    this.uuid,
+    this.uid,
     this.name,
     this.email,
     this.photoUrl,
   });
 
   Map<String, dynamic> toJson() => {
-        'uuid': uuid,
+        'uid': uid,
         'name': name,
         'email': email,
         'photoUrl': photoUrl,
       };
 
   User.fromJson(Map<String, dynamic> json)
-      : uuid = json['uuid'],
+      : uid = json['uid'],
         name = json['name'],
         email = json['email'],
         photoUrl = json['photoUrl'];
