@@ -181,11 +181,11 @@ class _FirstScreenState extends State<FirstScreen> {
         currentIndex: _currentIndex,
         selectedItemColor: MyColors.accent,
         unselectedItemColor: MyColors.white,
-        backgroundColor: MyColors.darkBlue,
+        backgroundColor: MyColors.dark,
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
-            title: Text('Home'),
+            title: Text('Dashboard'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.camera),
@@ -196,6 +196,14 @@ class _FirstScreenState extends State<FirstScreen> {
             title: Text('Map'),
           ),
         ],
+      ),
+    floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.store),
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return FirstScreen(prefs: this.widget.prefs);
+          }));
+        },
       ),
     );
   }
