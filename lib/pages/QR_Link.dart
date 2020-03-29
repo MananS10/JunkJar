@@ -1,9 +1,6 @@
 import 'package:barcode_scan/barcode_scan.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:junkjar/models/user.dart';
-import 'package:junkjar/models/user_repository.dart';
-import 'package:junkjar/pages/FirstScreen.dart';
 import 'package:junkjar/utils/Colours.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -14,8 +11,7 @@ class MyQRLinkPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _userRepository = UserRepository(prefs);
-    final User _user = _userRepository.getUser();
+//    final User _user = User.fromJson(json.decode(prefs.getString('user')));
 
     Future<String> _scanQrCode() async {
       String qrCode;
@@ -33,7 +29,7 @@ class MyQRLinkPage extends StatelessWidget {
 
     return Scaffold(
       body: Container(
-        color: MyColors.black,
+        color: MyColors.white,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -41,32 +37,20 @@ class MyQRLinkPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  'Welcome, ${_user.name}',
-                ),
-                SizedBox(
-                  height: 20.0,
+                  'Scan a QR code',
                 ),
                 Text(
-                  'Scan the code shown in EldersConnect Senior',
+                  'Value will be printed in console',
                 ),
                 SizedBox(
                   height: 20.0,
                 ),
                 RaisedButton(
                   child: Text('Scan Code'),
-                  color: MyColors.primary,
+                  color: MyColors.accent,
                   onPressed: () async {
-                    String seniorUid = await _scanQrCode();
-                    if (seniorUid != null) {
-                      prefs.setBool('isConnected', true);
-                      await _userRepository.updateUser(seniorUid, null);
-                      Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                 FirstScreen(prefs: this.prefs)),
-                              (Route<dynamic> route) => false);
-                    }
+                    String qrDecoded = await _scanQrCode();
+                    print('QR code value is: $qrDecoded');
                   },
                 ),
               ],
