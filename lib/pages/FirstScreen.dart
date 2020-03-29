@@ -7,6 +7,7 @@ import 'package:junkjar/pages/MapsPage.dart';
 import 'package:junkjar/pages/QR_Link.dart';
 import 'package:junkjar/utils/Colours.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class FirstScreen extends StatefulWidget {
   final SharedPreferences prefs;
@@ -19,6 +20,15 @@ class FirstScreen extends StatefulWidget {
 
 class _FirstScreenState extends State<FirstScreen> {
   int _currentIndex = 0;
+
+  _launchURL() async {
+    const url = 'https://flutter.dev';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
 
   void _onTabTapped(int index) {
     setState(() {
@@ -199,11 +209,7 @@ class _FirstScreenState extends State<FirstScreen> {
       ),
     floatingActionButton: FloatingActionButton(
         child: Icon(Icons.store),
-        onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return FirstScreen(prefs: this.widget.prefs);
-          }));
-        },
+      onPressed: _launchURL,
       ),
     );
   }
