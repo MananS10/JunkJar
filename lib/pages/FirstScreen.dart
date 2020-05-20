@@ -22,7 +22,7 @@ class _FirstScreenState extends State<FirstScreen> {
   int _currentIndex = 0;
 
   _launchURL() async {
-    const url = 'https://flutter.dev';
+    const url = 'http://lpgvitrakchayanpro.in/store/';
     if (await canLaunch(url)) {
       await launch(url);
     } else {
@@ -85,13 +85,13 @@ class _FirstScreenState extends State<FirstScreen> {
                           height: 140.0,
                           width: 140.0,
                           child: Image.asset(
-                            'assets/icon-legacy.png',
+                            'assets/1.JPG',
                             fit: BoxFit.fill,
                           ),
                         ),
                       ),
                       onTap: () {
-                        print('Tile clicked');
+                        print('Tile Clicked');
                       },
                     ),
                     SizedBox(
@@ -109,7 +109,7 @@ class _FirstScreenState extends State<FirstScreen> {
                           height: 140.0,
                           width: 140.0,
                           child: Image.asset(
-                            'assets/icon-legacy.png',
+                            'assets/2.JPG',
                             fit: BoxFit.fill,
                           ),
                         ),
@@ -139,7 +139,7 @@ class _FirstScreenState extends State<FirstScreen> {
                           height: 140.0,
                           width: 140.0,
                           child: Image.asset(
-                            'assets/icon-legacy.png',
+                            'assets/3.JPG',
                             fit: BoxFit.fill,
                           ),
                         ),
@@ -163,7 +163,7 @@ class _FirstScreenState extends State<FirstScreen> {
                           height: 140.0,
                           width: 140.0,
                           child: Image.asset(
-                            'assets/icon-legacy.png',
+                            'assets/4.JPG',
                             fit: BoxFit.fill,
                           ),
                         ),
